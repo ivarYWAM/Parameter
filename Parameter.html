@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Invoice Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 40px;
+        }
+        .container {
+            max-width: 600px;
+        }
+        .label {
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Invoice</h1>
+        <p>
+            <span class="label">Invoice ID:</span>
+            <span id="invoiceIdText">(not provided)</span>
+        </p>
+    </div>
+
+    <script>
+        // Read the invoiceID parameter from the URL query string
+        const params = new URLSearchParams(window.location.search);
+        const invoiceID = params.get('invoiceID');
+
+        if (invoiceID) {
+            document.getElementById('invoiceIdText').textContent = invoiceID;
+        }
+    </script>
+</body>
+</html>
